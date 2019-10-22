@@ -4,14 +4,14 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const Jobs = require('../models');
 
-
 // Get list of Jobs
 router.get('/', (req, res) =>
     Jobs.findAll()
     .then(jobs =>{
+        res.render('jobs',{
+            jobs
+        })
         console.log(jobs)
-        //res.sendStatus(200)
-        res.send(jobs)
     })
     .catch(err =>{
         console.log('Oops: ',err)
@@ -19,6 +19,10 @@ router.get('/', (req, res) =>
     })
 );
 
+// Get add job page
+router.get('/add', (req, res) =>{
+    res.render('add')
+})
 
 // Add Jobs
 router.post('/add', (req, res) =>{
@@ -44,22 +48,21 @@ router.post('/add', (req, res) =>{
     })
     .catch(err =>{
         console.log('Oops, something went wrong while adding new Job: ', err)
+        res.send(err)
     })
 })
 
 // search job by title
 router.get('/search', (req, res) =>{
 
-    let { job_title } = req.body;
+    let { job_title } = req.query;
 
     Jobs.findAll({ where: { job_title: { [Op.iLike]: '%' + job_title + '%' } } })
-    .then(jobs =>{
-       res.send(jobs);
-        console.log(jobs)
-    })
+    .then(jobs => {
+        res.render('jobs', { jobs }
+    )})
     .catch(err =>{
         res.send(err);
-        console.log(err)
     })
 })
 

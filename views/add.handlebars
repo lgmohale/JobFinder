@@ -1,0 +1,80 @@
+<section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Add A Job</h1>
+      <p>Your contact information will be shared with registered users to apply to your Company</p>
+      {{#each errors}}
+        <div class="error">
+          <p>{{text}}</p>
+        </div>
+      {{/each}}
+      <form action="/jobs/add" method="POST">
+        <div class="input-group">
+          <label for="title">Company Name</label>
+          <input type="text" name="company_name" id="company_name" class="input-box"
+            maxlength="100" value={{company_name}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Company Description</label>
+          <textarea name="company_description" id="company_description" class="input-box"
+            rows="10">{{company_description}}</textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Company Email</label>
+          <input type="text" name="company_email" id="company_email" class="input-box"
+          maxlength="100" value={{company_email}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Company Website</label>
+          <input type="text" name="company_website" id="company_website" class="input-box"
+          maxlength="100" value={{company_website}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Company Contact No.</label>
+          <input type="text" name="company_phone" id="company_phone" class="input-box"
+          maxlength="100" value={{company_phone}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Job Title.</label>
+          <input type="text" name="job_title" id="job_title" class="input-box"
+          maxlength="100" value={{job_title}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Job Type</label>
+          <input type="text" name="job_type" id="job_type" class="input-box"
+          maxlength="100" value={{job_type}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Job Location</label>
+          <input type="text" name="job_location" id="job_location" class="input-box"
+          maxlength="100" value={{job_location}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Job Roles</label>
+          <input type="text" name="job_resp" id="job_resp" class="input-box"
+          maxlength="100" value={{job_resp}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Minimum Requirement</label>
+          <input type="text" name="job_req" id="job_req" class="input-box"
+          maxlength="100" value={{job_req}}>
+        </div>
+
+        <div class="input-group">
+          <label for="technologies">Bugdet Alocated</label>
+          <input type="text" name="job_budget" id="job_budget" class="input-box"
+          maxlength="100" value={{job_budget}}>
+        </div>
+
+        <input type="submit" value="Post Job" class="btn btn-reverse">
+      </form>
+    </div>
+  </section>

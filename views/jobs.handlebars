@@ -1,0 +1,19 @@
+<section id="gigs" class="container">
+    <h1>All Jobs</h1>
+
+    {{#each jobs}}
+      <div class="gig">
+      <h3>{{job_title}}</h3>
+      <p>{{company_description}}</p>
+      <ul>
+        <li>Budget: {{job_budget}}</li>
+        <li><a href="mailto:{{company_email}}" class="btn btn-reverse">Apply Now</a></li>
+      </ul>
+      <div class="tech">
+        <small>Requirements: <span>{{job_req}}</span></small>
+      </div>
+    </div>
+    {{else}}
+      <p>No Jobs available</p>
+    {{/each}}
+    
